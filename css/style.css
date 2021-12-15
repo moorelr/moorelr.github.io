@@ -1,9 +1,19 @@
+/* Credit to 
+https://www.youtube.com/watch?v=yfoY53QXEnI&t=3172s
+*/
+
+.clr{
+	/* this is to fix the mess created by thr float property.*/
+	clear:both;
+}
+
 body{
 
     font-family: arial, helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 12pt;
+    font-weight: normal;
     background-color: gray;
+	padding:20px;
 }
 
 ul{
@@ -19,23 +29,47 @@ a:hover{
     color: #008eda;
 }
 
+h4{
+	font-style:italic;
+	color:#d0d0d0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
 .container{
-    width:90%;
+    /* Here's a [block] comment! */
+	width:50%;
     margin:auto;
 }
 
-.box-1{
-    float:left;
-    background:#A7A7A7;
-    width:50%;
-    height:211px;
-    padding-left: 20px;
-}
-
-.box-2{
+.photobox{
     border: 5px black dotted;
     background-color: gray;
     float: left;
     width:200px;
     height:201px;
+}
+
+.graybox{
+    float:right;
+    background:#A7A7A7;
+    width:40%;
+    height:211px;
+	padding:10px 10px;
+	margin-top:10px;
+	border-top:5px red solid;
+}
+
+.aboutbox{
+    float:left;
+    background:#A7A7A7;
+    width:40%;
+    height:211px;
+	padding:10px 10px;
+	margin-top:10px;
+	border-top:5px red solid;
 }
