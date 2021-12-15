@@ -9,5 +9,5 @@ for comments, email moorelr@vt.edu
 - add post about mammoth lakes
 
 ### Formatting
-- Check formatting for mobile
-- 
+- update CSS with new container for index page
+- format boxes to account for overflow
