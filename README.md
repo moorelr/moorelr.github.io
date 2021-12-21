@@ -4,10 +4,9 @@ for comments, email moorelr@vt.edu
 ## TODO
 
 ### Content
-- add WHOI 2017 presentation
 - add post about bubble growth model
 - add post about mammoth lakes
+- add melts + volatile solubility animation
 
 ### Formatting
-- update CSS with new container for index page
-- format boxes to account for overflow
+- 

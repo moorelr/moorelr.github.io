@@ -22,7 +22,7 @@ ul{
 
 a{
     text-decoration: none;
-    color:#008084;
+    color:#DF0101;
 }
 
 a:hover{
@@ -32,6 +32,13 @@ a:hover{
 h4{
 	font-style:italic;
 	color:#d0d0d0;
+}
+
+pre{
+	background-color:white;
+	border:1px black solid;
+	padding: 10px;
+	border-radius: 10px;
 }
 
 img {
@@ -46,6 +53,12 @@ img {
     margin:auto;
 }
 
+.container-2{
+    /* Here's a [block] comment! */
+	width:80%;
+    margin:auto;
+}
+
 .photobox{
     border: 5px black dotted;
     background-color: gray;
@@ -57,8 +70,8 @@ img {
 .graybox{
     float:right;
     background:#A7A7A7;
-    width:40%;
-    height:211px;
+    width:50%;
+    height:auto;
 	padding:10px 10px;
 	margin-top:10px;
 	border-top:5px red solid;
@@ -68,7 +81,7 @@ img {
     float:left;
     background:#A7A7A7;
     width:40%;
-    height:211px;
+    height:auto;
 	padding:10px 10px;
 	margin-top:10px;
 	border-top:5px red solid;
