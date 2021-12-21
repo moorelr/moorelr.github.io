@@ -14,4 +14,4 @@ for comments, email moorelr@vt.edu
 
 ### Misc bugs
 - Typo -- "ImageJ screenshot.png"
-- 
+- PACROFI 2018 (?) talk missing
