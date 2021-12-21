@@ -7,9 +7,11 @@ for comments, email moorelr@vt.edu
 - add post about bubble growth model
 - add post about mammoth lakes
 - add melts + volatile solubility animation
+- Hyperspectral imaging cluster analysis workflow
 
 ### Formatting
 - 
 
 ### Misc bugs
-- hyperspectral imaging page has difficulty showing .png files unless PNG is capitalized??
+- Typo -- "ImageJ screenshot.png"
+- 
