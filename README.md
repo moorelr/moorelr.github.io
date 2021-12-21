@@ -10,3 +10,6 @@ for comments, email moorelr@vt.edu
 
 ### Formatting
 - 
+
+### Misc bugs
+- hyperspectral imaging page has difficulty showing .png files unless PNG is capitalized??
