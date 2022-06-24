@@ -1,17 +1,4 @@
 # moorelr.github.io
 for comments, email moorelr@vt.edu
 
-## TODO
-
-### Content
-- add post about bubble growth model
-- add post about mammoth lakes
-- add melts + volatile solubility animation
-- Hyperspectral imaging cluster analysis workflow
-
-### Formatting
-- 
-
-### Misc bugs
-- Typo -- "ImageJ screenshot.png"
-- PACROFI 2018 (?) talk missing
+![Alt text](https://moorelr.github.io/images/html like a psychopath.png "html like a psychopath")
