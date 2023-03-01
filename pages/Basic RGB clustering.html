@@ -31,14 +31,14 @@
 			process other than simply looking at three channels at a time -- it occurred to me that I could also reduce the dimensionality of the data by
 			just using PCA like a normal person would.  So that's what I've done here using a modified, PCA-based version of my basic RGB clustering script.</p>
 			
-			<a href ="../images/basic rgb clustering/EDS elements.gif"><img src="../images/basic rgb clustering/EDS elements.gif" alt=""></a>
+			<a href ="../images/basic RGB clustering/EDS elements.gif"><img src="../images/basic RGB clustering/EDS elements.gif" alt=""></a>
 			
 			<p>While last time I did the clustering on a RGB image composed of three channels for Fe, Mg, and Si K-alpha X-rays, this time I am using all 10
 			of the auto-detected elements from the hyperspectral EDS map (as shown in the above animation).  Note that Na, Al, and K -- not accounted for
 			previously -- show up in high concentrations in the fine-grained Si-rich regions between the larger more Ca- and Mg-rich grains (pyroxene and
 			olivine respectively).  Maybe a mixture of plagioclase, orthoclase, and quartz?</p>
 			
-			<a href ="../images/basic rgb clustering/PCA clusters.gif"><img src="../images/basic rgb clustering/PCA clusters.gif" alt=""></a>
+			<a href ="../images/basic RGB clustering/PCA clusters.gif"><img src="../images/basic RGB clustering/PCA clusters.gif" alt=""></a>
 			
 			<p>This time, instead of going through the whole rigmarole of stacked scatter and ternary plots, I just used R's <b>prcomp</b> function to
 			calculate the principal components of the dataset.  A plot of PC's 1 and 2 clearly divides the data into nice clumps.  What's even more encouraging
@@ -53,7 +53,7 @@
 			grains upon further inspection (also below).  Clusters 6 and 7 are bigger and also seem to be mixed with adjacent grains in the sense that they seem
 			to represent pore space.</p>
 			
-			<a href ="../images/basic rgb clustering/pca_Stack (RGB) clusters.bmp"><img src="../images/basic rgb clustering/pca_Stack (RGB) clusters.bmp" alt=""></a>
+			<a href ="../images/basic RGB clustering/pca_Stack (RGB) clusters.bmp"><img src="../images/basic RGB clustering/pca_Stack (RGB) clusters.bmp" alt=""></a>
 			
 			<p>So then what are the clusters anyway?  Here's my attempt to identify them:</p>
 			
@@ -78,7 +78,7 @@
 			<p>Finally, to bring this exploration "full circle," I took the three most significant components PC1, PC2, and PC3 and converted them into an RGB
 			image shown below.</p>
 			
-			<a href ="../images/basic rgb clustering/Stack (RGB) PCA image.bmp"><img src="../images/basic rgb clustering/Stack (RGB) PCA image.bmp" alt=""></a>
+			<a href ="../images/basic RGB clustering/Stack (RGB) PCA image.bmp"><img src="../images/basic RGB clustering/Stack (RGB) PCA image.bmp" alt=""></a>
 			
 			
 			<h4>Rev. 2/22/2023 LRM</h4>
@@ -96,7 +96,7 @@
 			after it can be demonstrated to out-perform my "null solution."  So, yes for now.
 			</p>
 			
-			<a href ="../images/basic rgb clustering/Stack (RGB).png"><img src="../images/basic rgb clustering/Stack (RGB).png" alt=""></a>
+			<a href ="../images/basic RGB clustering/Stack (RGB).png"><img src="../images/basic RGB clustering/Stack (RGB).png" alt=""></a>
 			
 			<p>Here's an example image from EDS data collected on a basalt from near Mammoth Lakes, CA.  The red, green, and blue channels correspond to Fe, Mg, 
 			and Si respectively.  The image was made in ImageJ by... eh, nevermind.</p>
@@ -104,17 +104,17 @@
 			<p>Ok, so let's use the the best, most readily-available neural network to segment the image: the human brain!  I think I see a green plase, a
 			dark blue phase, a light blue phase, and a red phase.  There -- what do I win?</p>
 			
-			<a href ="../images/basic rgb clustering/Stack (RGB) 2d scatter.bmp"><img src="../images/basic rgb clustering/Stack (RGB) 2d scatter.bmp" alt=""></a>
+			<a href ="../images/basic RGB clustering/Stack (RGB) 2d scatter.bmp"><img src="../images/basic RGB clustering/Stack (RGB) 2d scatter.bmp" alt=""></a>
 			
 			<p>Ok, so where them clusters at?  Here's a couple of 2d-scatter plots colored as in the image. looks like there is a lot of noise, but the
 			data seem to cluster around a few endmember locations, similar to the clusters immediately visible in the image.</p>
 			
-			<a href ="../images/basic rgb clustering/Stack (RGB) ternary.bmp"><img src="../images/basic rgb clustering/Stack (RGB) ternary.bmp" alt=""></a>
+			<a href ="../images/basic RGB clustering/Stack (RGB) ternary.bmp"><img src="../images/basic RGB clustering/Stack (RGB) ternary.bmp" alt=""></a>
 			
 			<p>Yes, this is way better: using a ternary plot, the clusters can now be clearly separated on a single image.  Now all I have to do is use my
 			locate_poly function to manually identify the points...</p>
 			
-			<a href ="../images/basic rgb clustering/Stack (RGB) clusters.bmp"><img src="../images/basic rgb clustering/Stack (RGB) clusters.bmp" alt=""></a>
+			<a href ="../images/basic RGB clustering/Stack (RGB) clusters.bmp"><img src="../images/basic RGB clustering/Stack (RGB) clusters.bmp" alt=""></a>
 			
 			<p>...and here are the clusters!  Note that closters 0, 1, 2, 3, 4, and 5 are unsegmented points, the green phase, a lighter green phase that 
 			I identified subsequently, the red phase, the light blue phase, and the dark blue phase respectively.  The number of unclassified points can 
