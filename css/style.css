@@ -41,6 +41,12 @@ pre{
 	border-radius: 10px;
 }
 
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
 img {
   max-width: 100%;
   height: auto;
