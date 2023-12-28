@@ -19,16 +19,28 @@
 			<tr><td>Flour</td>			<td>*4 c</td>			</tr>
 
 			</table>
+			
+			<figure>
+				<a href = "../images/Bris-1/template.pdf"><img src="../images/Bris-1/template thumb.jpg"></a>
+				<figcaption>
+					Template caption.
+				</figcaption>
+			</figure>
+			
 	-->
 	<body>
         
 		<div class="container">
 			<h1>Bris-1 mystery sample</h1>
-			<h4>Rev. 12/22/2023 LRM... A test case for microprobe method development for metamorphic petrology applications</h4>
+			<h4>Rev. 12/27/2023 LRM... A test case for microprobe method development for metamorphic petrology applications</h4>
 			
 			<p>Bris-1 is a random thin section that I found in the Petrology Lab when I started working as a lab manager.  At the time of 
 			writing, I have no idea where it comes from.  So far, it's turned out to be a garnet-bearing metamorphic rock with a lot of quartz, 
 			alkali feldspars, biotite, and kyanite.</p>
+			
+			<p><b>Note:</b> I use YYMMDD dates in my notes, and some of these dates may be floating around in here.</p>
+			
+			<h3>Petrography</h3>
 			
 			<figure>
 				<a href = "../images/Bris-1/Bris-1 thin section photo.jpeg"><img src="../images/Bris-1/Bris-1 thin section photo thumb.jpeg"></a>
@@ -44,6 +56,10 @@
 				</figcaption>
 			</figure>
 			
+			<p><b>Commentary:</b> If I were a good microprobe user, I would have photographed and scanned the sample before starting any analyses,
+			but sometimes one is in a hurry and doesn't do that.  The PCA analyses, EDS analyses, and Ti-In-Qtz analyses were done before I went
+			back to the Petrology lab to make the photo/scans.</p> 
+			
 			<figure>
 				<a href = "../images/Bris-1/Bris-1 xpl.jpg"><img src="../images/Bris-1/Bris-1 xpl thumb.jpg"></a>
 				<figcaption>
@@ -51,20 +67,162 @@
 				</figcaption>
 			</figure>
 			
+			<p><b>Commentary: </b>A big-picture problem I am interested in figuring out is how to obtain modal mineral abundances using X-ray maps.
+			This problem has been solved previously with various image segmentation programs including <a href = "https://xmaptools.ch/">Pierre
+			Lanari's XMapTools</a>, but that doesn't prevent me from being curious about strategies for image segmentation or other ways to make
+			sense of multi-channel X-ray data.</p>
+			
+			<p>To get some preliminary X-ray data for the sample, I made a full thin section map using the following settings with the result
+			shown below.  I think it was also my intent to use the thin section to test my monazite dating method, but I must have forgotten about
+			this initially.</p>
+			
+			<ul>
+				<li>20 kV, 100 nA beam, defocused to a 20 micron circular spot</li>
+				<li>18.060 x 36.580 scan range with 20 micron square pixels</li>
+				<li>903 x 1829 pixel resolution x 20 ms dwell time = 10h 26m</li>
+				<li>WDS: Mg(TAP), Ca(PET), Ce(PET), Mn(LiF), P(TAP)</li>
+				<li>EDS: manually selected major elements, reduced aperture</li>
+				<li>IMS: SED, BED-C, PCLI</li>
+			</ul>
+			
 			<figure>
 				<a href = "../images/Bris-1/Bris1 PCA + key.pdf"><img src="../images/Bris-1/Bris1 PCA + key thumb.jpg"></a>
 				<figcaption>
-					Scan of Bris-1 thin section in cross-polarized light.  The extinct areas appear blue.
+					Principle component analysis of Bris-1 full thin section scan collected on 230717.  Note that the sample is rotated
+					180 degrees relative to the thin section photo/scans above.  I have been going back and forth between policies on the
+					microprobe that "the label should be at the top" vs "the text on the label should be right side up."  At the time of
+					wiriting, the latter is my working policy.
 				</figcaption>
 			</figure>
 			
-			<h3>TODO</h3>
+			<p><b>Commentary:</b> PCA was done in R with the image made from PC's 1, 2, and 3 mapped onto the R, G, and B channels respectively.
+			The process of making the PCA image is extremely easy, but interpreting the colors/clusters as individual minerals and segmenting
+			the image into the clusters is difficult.</p>
+			
+			<figure>
+				<a href = "../images/Bris-1/231219 Bris-1 map notes.jpeg"><img src="../images/Bris-1/231219 Bris-1 map notes thumb.jpeg"></a>
+				<figcaption>
+					A photo of my printed-out-and-written-on notes from a session that I spent trying to "ground truth" the minerals that I had
+					previously attempted to identify using my X-ray maps.
+				</figcaption>
+			</figure>
+			
+			<p>After looking around with the EDS, here are the main takeaways (with colors in reference to the PCA image above):
+			<ul>
+				<li>The quartz, garnet, and ilmenite seem to have been identified correctly.</li>
+				<li>I misidentified the feldspars: the lighter green phase is a Na-rich feldspar (~75% Albite), and the darker green phase is a
+				K-rich feldspar (~90% Orthoclase).</li>
+				<li>In the patchy red/orange/brown areas that I labeled as "Biotite?" several minerals are present:
+				<ul>
+					<li>Yellowish-brown = Kyanite</li>
+					<li>Dark red = Cordierite</li>
+					<li>Light pinkish-red = Biotite</li>
+					<li>Darker maroon = also biotite, containing Ti?</li>
+				</ul>
+				</li>
+				<li>Also, it seems like there could be two micas growing together: a more K-rich mica, and a more Fe+Ti-rich mica (biotite and
+				muscovite?).</li>
+				<li>The light pink/purple color seems to include both monazite and sulfides (pyrrhotite?) as well as ilmenite.</li>
+				<li>The white phase marked as "Sulfides?" is actually apatite.</li>
+			</ul>
+			</p>
+			
+			<h5>Outstanding questions:</h5>
+			<ul>
+				<li>What about K-means clusting results?</li>
+				<li>How do K-means clusters compare with simply segmenting based on the BSE image?</li>
+				<li>How do EDS maps compare to my full thin section map?  (need to include some for comparison.</li>
+				<li></li>
+			</ul>
+			
+			
+			
+			<h3>Ti-in-Qtz</h3>
+			
+			<p>One method I have been working on is quantifying Ti in quartz, which seems to be a popular thermobarometer these days.  This is
+			obviously challenging because one doesn't think of quartz as containing a lot of Ti, but it's also challenging because of some "manual
+			labor" that goes into summing the counts collected on multiple spectrometers.</p>
+			
+			<figure>
+				<a href = "../images/Bris-1/after analysis 0855 ROI1b 60x PCLI.bmp"><img src="../images/Bris-1/after analysis 0855 ROI1b 60x PCLI thumb.jpg"></a>
+				<figcaption>
+					CL image of area analyzed using my Ti-in-Qtz quant recipe.  This image was taken after I had analyzed the sample, so the
+					locations of the analyses can be seen as a trail of dots going down/left from the first point in the upper/right.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Bris-1/Ti-in-qtz Unknown vs blanks.pdf"><img src="../images/Bris-1/Ti-in-qtz Unknown vs blanks thumb.jpg"></a>
+				<figcaption>
+					A standard-format figure produced by my R script that post processes the Ti analyses.  The blue circles are the analyses of
+					quartz in the Bris-1 mystery sample, the red circles are analyses of a Ti-free blank, and the tan circles are analyses of a
+					well-characterized quartz "check standard" containing 57 ppm of Ti.
+				</figcaption>
+			</figure>
+			
+			<h5>Outstanding questions:</h5>
+			<ul>
+				<li>How do the Ti concentrations compare to the CL brightness?
+				<li></li>
+			</ul>
+			
+			
+			<h3>Monazite dating</h3>
+			
+			<figure>
+				<a href = "../images/Bris-1/Bris1 test map_Bris1_wds_COMPO + Ce.bmp"><img src="../images/Bris-1/Bris1 test map_Bris1_wds_COMPO + Ce thumb.jpg"></a>
+				<figcaption>
+					Grayscale BSE image of the Bris-1 mystery sample with Ce false color image overlain for ~0.03% of pixels containing the most Ce,
+					which are almost certainly monazites.
+				</figcaption>
+			</figure>
+			
+			<p><b>Aside:</b> Here is my method formaking the overlay image for future reference:
+			<ol>
+				<li>Open the "COMPO" and "Ce" maps in ImageJ</li>
+				<li>Select the "Ce" image and click "Image > Adjust > Threshold..." to open the thresholding tool</li>
+				<li>Choose the pixel range going from some arbitrary minimum value up to the maximum value so that only the most Ce-rich pixels are
+				selected, and close the menu without clicking any buttons.  At this point, the chosen pixels should appear red on the image.</li>
+				<li>Click "Edit > Selection > Create Selection" to select the hilighted pixels</li>
+				<li>Click "Image > Lookup Tables > Fire" to apply a lookup table</li>
+				<li>Click "Image > Type > RGB Color" to change the now false color image to RGB format</li>
+				<li>Ctrl+C to copy the selected pixels</li>
+				<li>Select the "COMPO" image, and click "Image > Type > RGB Color" to change it also to RGB format</li>
+				<li>Ctrl+V to paste the selected pixels onto the "COMPO" image</li>
+				<li>Zoom in on a bright area and double check that the pasted pixels are in the right location.  Fortunately, you can click and
+				drag the pasted pixels if they need to be adjusted.  I suspect that the they will be accurate if the maximum area of the selection
+				matches the maximum area of the image, but not if the area is smaller.</li>
+				<li>At this point, you're done.  Save the image in the desired format (e.g. as a RGB-formatted .bmp file).</li>
+			</ol>
+			</p>
+			
+			<p>I haven't actually analyzed any monazites in the sample yet, but I made the image above to identify where to look for monazites.  I
+			feel ok about my monazite analysis method, which puts the parent/daughter elements on the WDS detectors and the major elements on the
+			EDS detector.  Unfortunately, there is what I suspect to be an absolute systematic error affecting the calculated ages based on a
+			discrepancy relative to the random USGS reference material I found in the cabinet.  It would be good to get some more of these to make
+			some kind of calibration curve for the ages (is that allowed?).</p>
+			
+			<h5>Outstanding questions:</h5>
+			<ul>
+				<li>Analyze the monazites!  What's the process like?  What are the ages?</li>
+				<li></li>
+			</ul>
+			
+			
+			
+			
+			<h3>Maintenance</h3>
+			
+			<h5>TODO</h5>
 			
 			<ul>
-				<li>Include EDS data</li>
-				<li>Include Ti-in-Qtz results</li>
-				<li>convert images to thumbs</li>
 				<li></li>
+				<li></li>
+			</ul>
+			
+			<h5>Bugs</h5>
+			
+			<ul>
 				<li></li>
 				<li></li>
 			</ul>
