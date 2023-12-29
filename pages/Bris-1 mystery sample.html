@@ -40,6 +40,11 @@
 			
 			<p><b>Note:</b> I use YYMMDD dates in my notes, and some of these dates may be floating around in here.</p>
 			
+			<!--=============================================================================
+			Petrography
+			==============================================================================-->
+			
+			
 			<h3>Petrography</h3>
 			
 			<figure>
@@ -95,9 +100,41 @@
 				</figcaption>
 			</figure>
 			
-			<p><b>Commentary:</b> PCA was done in R with the image made from PC's 1, 2, and 3 mapped onto the R, G, and B channels respectively.
-			The process of making the PCA image is extremely easy, but interpreting the colors/clusters as individual minerals and segmenting
-			the image into the clusters is difficult.</p>
+			<p><b>Aside:</b> At some point, I'll probably need to explain what PCA is and how it's being used here.  Here are my notes about PCA:</p>
+			
+			<h5>Lowell's explanation of PCA</h5>
+			
+			<ul>
+				<li>The goal of PCA is dimensionality reduction.  Suppose you have a dataset with many dimensions, but some of the variables are
+				correlated. In this case, multiple variables can be summarized by simply considering a linear relationship between them.</li>
+				<li>In geology, the use of various mineralogical indices calculated from more complete chemical analyses (e.g. Fo#, An#,
+				Peralkalinity index) accomplishes the goal of dimensionality reduction, and is loosely analogous to PCA.</li>
+				<li>PCA refers to a calculation that projects multidimensional data onto a new coordinate system.</li>
+				<li>The axes in the coordinate system are mutually orthogonal, and each axis points in the direction of maximum variance.</li>
+			</ul>
+			
+			<p>(the "mathy" bits)</p>
+			
+			<ul>
+				<li>The number of PCs is equal to the number of variables</li>
+				<li>The PCs are unit vectors that constitute an orthonormal basis</li>
+				<li>Note: an eigenvector is a vector "v" corresponding to a square matrix "A" such that the product A*v = lambda*v where
+				the scalar "lambda" is the eigenvalue of eigenvector "v"</li>
+				<li>Also note: a covariance matrix is an n x n matrix of n variables where each item in the matrix is the covariance of
+				two corresponding variables of the variables.</li>
+				<li>The PCs are eigenvectors of the data's covariance matrix.  PCA performs a change of basis calculation to transform the
+				original data to be expressed eigenvalues of the PCs/eigenvectors/orthonormal unit vectors.</li>
+			</ul>
+
+			<p>(defining some of the jargon)</p>
+			
+			<ul>
+				<li>Loading (positive/negative): refers to the degree to which a variable contributes to or is correlated with a PC</li>
+			</ul>
+			
+			<p><b>Commentary:</b> PCA was done for the Bris-1 sample in R with the image made from PC's 1, 2, and 3 mapped onto the R, G, and B
+			channels respectively.  The process of making the PCA image is extremely easy, but interpreting the colors/clusters as individual
+			minerals and segmenting the image into the clusters is difficult.</p>
 			
 			<figure>
 				<a href = "../images/Bris-1/231219 Bris-1 map notes.jpeg"><img src="../images/Bris-1/231219 Bris-1 map notes thumb.jpeg"></a>
@@ -129,21 +166,76 @@
 			
 			<h5>Outstanding questions:</h5>
 			<ul>
-				<li>What about K-means clusting results?</li>
-				<li>How do K-means clusters compare with simply segmenting based on the BSE image?</li>
 				<li>How do EDS maps compare to my full thin section map?  (need to include some for comparison.</li>
 				<li></li>
 			</ul>
 			
+			<!--=============================================================================
+			Segmentation
+			==============================================================================-->
 			
-			<h3></h3>
+			<h3>Segmentation</h3>
+			
+			<p>Here's what I've tried so far with regards to segmentation:
+			<ul>
+				<li>K-means clustering EDS maps in ImageJ</li>
+				<li>"Segmenting" images (to visualize potential clusters) using PCA in R + ImageJ</li>
+				<li>K-means clustering EDS maps in R</li>
+				<li>Naively segmenting BSE images using the "16 colors" LUT in ImageJ</li>
+				<li>Staring at transmitted light photomicrographs wishing that the thin section would just segment itself</li>
+			</ul>
+			</p>
+			
+			<figure>
+				<a href = "../images/Bris-1/R K-means clusters + key.pdf"><img src="../images/Bris-1/R K-means clusters + key thumb.jpg"></a>
+				<figcaption>
+					K-means clusters made using EDS maps of the full Bris-1 thin section as described above.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Bris-1/PC_plots.pdf"><img src="../images/Bris-1/PC_plots thumb.jpg"></a>
+				<figcaption>
+					Scatter plots of pronciple components calculated for EDS elements that I attemted to use for K-means clusters.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Bris-1/R K-means screeplot.pdf"><img src="../images/Bris-1/R K-means screeplot thumb.jpg"></a>
+				<figcaption>
+					Scree plot for increasing numbers of clusters.  It looks like there should be about 6 clusters based on this plot.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Bris-1/BED-C + 16 colors + key.pdf"><img src="../images/Bris-1/BED-C + 16 colors + key thumb.jpg"></a>
+				<figcaption>
+					16-color lookup table applied to BSE image of Bris-1 thin section.
+				</figcaption>
+			</figure>
+			
+			<!--=============================================================================
+			Trace element method
+			==============================================================================-->
+			
+			<h3>Garnet trace element maps</h3>
 			
 			<figure>
 				<a href = "../images/Bris-1/Bris-1 garnet map + qual summary.pdf"><img src="../images/Bris-1/Bris-1 garnet map + qual summary thumb.jpg"></a>
 				<figcaption>
-					Template caption.
+					Comparison of exploratory WDS spectra vs trace element maps.
 				</figcaption>
 			</figure>
+			
+			<p><b>Commentary:</b> most users are unsure about the best conditions to use for mapping trace elements.  Usually the trace element in
+			question is Yttrium, and the material in question is garnet.  Ideally, I should be able to provide a general way for the user to figure
+			this out independently without wasting a bunch of time trying things randomly, and collecting a few "qualitative" WDS spectra to test
+			out different spectrometer/element pairings, dwell times, and beam conditions seems like the best way to do this.  I've written about
+			this process elsewhere.</p>
+			
+			<p>The figure above shows the results of a basic test that I did, which basically determined -- without making any maps ahead of
+			time -- that mapping Y, Ti, Sc, and Cr would be a waste of time for this garnet for the amount of time that I was prepared to spend
+			doing so.</p>
 			
 			<h5>Outstanding questions</h5>
 			<ul>
@@ -152,6 +244,10 @@
 				<li></li>
 			</ul>
 			
+			
+			<!--=============================================================================
+			Ti-in-Qtz
+			==============================================================================-->
 			
 			<h3>Ti-in-Qtz</h3>
 			
