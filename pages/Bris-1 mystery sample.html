@@ -50,6 +50,7 @@
 			<ul>
 				<li><a href = "#Petrography">Petrography</a></li>
 				<li><a href = "#Segmentation">Segmentation</a></li>
+				<li><a href = "#Major element WDS method">Major element WDS method</a></li>
 				<li><a href = "#Trace element mapping">Trace element mapping</a></li>
 				<li><a href = "#Ti-in-Quartz">Ti-in-Quartz</a></li>
 				<li><a href = "#Monazite dating">Monazite dating</a></li>
@@ -269,6 +270,53 @@
 			
 			
 			<!--=============================================================================
+			Major element WDS method
+			==============================================================================-->
+			
+			<a id = "Major element WDS method"></a>
+			<h3>Major element WDS method</h3>
+			<a href = "#contents">back to top</a>
+			
+			<figure>
+				<a href = "../images/Bris-1/Met minerals.jpeg"><img src="../images/Bris-1/Met minerals thumb.jpg"></a>
+				<figcaption>
+					Notes about metamorphic mineral quant method.
+				</figcaption>
+			</figure>
+			
+			<p><b>My notes about reporting uncertainty:</b></p>
+			
+			<p>Uncertainty is going to depend on these factors:
+			<ul>
+				<li>Counting statistics (more X-ray counts per second means more precision)</li>
+				<li>Quality of standards (are the reported concentrations accurate? are the standards homogeneous?)</li>
+				<li>Instrumental drift (were there any big temperature swings in the lab?)</li>
+				<li>User error and sample preparation (were any mistakes made preparing the sample, applying a conductive
+				C coating, doing the calibration, or performing the analyses?)</li>
+			</ul>
+			If we assume that everything went well and no mistakes were made, then it's fine to use the calculated uncertainties returned
+			by the software which are based on X-ray counting statistics.  As one can imagine this assumption isn't always valid,
+			and that's why I usually suggest that users analyze several replicates of different reference materials (calibration standards,
+			our set of SI microbeam standards, etc.) as unknowns during their analytical session.
+			</p>
+
+			<p>What I would recommend is that if some of the standards were analysed in replicate as unknowns, then the user could say something like
+			"uncertainty was estimated based on the standard deviation of N replicate analyses of [a diopside standard (or whatever)]
+			provided by the microprobe lab."  Alternatively, if this wasn't done, or if the user feels like there weren't any major problems
+			based on periodically analyzing one of the standards as an unknown, then the user can just report the errors from counting statistics.</p>
+			
+			<figure>
+				<a href = "../images/Bris-1/WDS comparison plots.pdf"><img src="../images/Bris-1/WDS comparison plots thumb.jpg"></a>
+				<figcaption>
+					Calibration curve type figures of SI microbeam standards analyzed using 20 kV quant method as above.
+				</figcaption>
+			</figure>
+			
+			<p>To check the precision/accuracy of the quantitative method, I analyzed a bunch of replicates of some of my reference materials
+			to create calibration-curve-like plots and calculate a regression line and uncertainty envelope.  It seems like this is probably
+			the most robust way to estimate all of the sources of uncertainty including user error and quality of the standards.</p>
+			
+			<!--=============================================================================
 			Trace element method
 			==============================================================================-->
 			
@@ -397,7 +445,7 @@
 				<li>Are there any other zoned minerals in the sample?</li>
 				<li>Would segmentation work better if I try remapping it with more major elements on the WDS? (WDS:Si,Al,Ca,Fe,Mg + COMPO)</li>
 				<li>How quickly can I make a nice quality full thin section map?</li>
-				<li></li>
+				<li>Add residual plots to R script that makes major element calibration curves</li>
 				<li></li>
 			</ul>
 			
