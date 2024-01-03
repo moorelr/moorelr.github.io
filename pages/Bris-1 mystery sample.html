@@ -228,6 +228,46 @@
 				</figcaption>
 			</figure>
 			
+			<p>To evaluate the effectiveness of the K-means clustering approach, I need a way to "ground truth" the phase proportion, and
+			I can't think of a better way to do this than point counting.  To count points, I wrote a basic R script to randomly display a
+			100 x 100 pixel subregion of the PC image shown above, and used this to count ~120 points at the center of each sampled region.
+			I then compared this result to the proportions of the clusters which are shown in the image above.</p>
+			
+			<p>Here is a table of the point counting results:</p>
+			<table>
+			<tr><th>phase_options</th>	<th>phase_props </th>	<th>n_counted</th>	</tr>
+			<tr><td>Quartz</td>			<td>0.49</td>			<td>49</td>	</tr>
+			<tr><td>K-spar</td>			<td>0.18</td>			<td>18</td>	</tr>
+			<tr><td>Na-Spar</td>		<td>0.05</td>			<td>5</td>	</tr>
+			<tr><td>Garnet</td>			<td>0.12</td>			<td>12</td>	</tr>
+			<tr><td>Biotite</td>		<td>0.05</td>			<td>5</td>	</tr>
+			<tr><td>Kyanite</td>		<td>0.08</td>			<td>8</td>	</tr>
+			<tr><td>Cordierite</td>		<td>0.02</td>			<td>2</td>	</tr>
+			<tr><td>Ilmenite</td>		<td>0</td>				<td>0</td>	</tr>
+			<tr><td>unclear</td>		<td>0.01</td>			<td>1</td>	</tr>
+			</table>
+			
+			<p>Here is a table of the K-means clustering results:</p>
+			<table>
+			<tr><th>cluster_id</th>	<th>cluster_names</th>	<th>prop_clust </th>	<th>n_clust </th>	</tr>
+			<tr><td>1</td>			<td>K-fsp</td>			<td>0.238427</td>		<td>393783</td>		</tr>
+			<tr><td>2</td>			<td>Crd+Bt+Ky</td>		<td>0.222723</td>		<td>367846</td>		</tr>
+			<tr><td>3</td>			<td>Na-Fsp</td>			<td>0.078168</td>		<td>129102</td>		</tr>
+			<tr><td>4</td>			<td>Qtz</td>			<td>0.352312</td>		<td>581874</td>		</tr>
+			<tr><td>5</td>			<td>Grt</td>			<td>0.098683</td>		<td>162984</td>		</tr>
+			<tr><td>6</td>			<td>none_6</td>			<td>0.000000</td>		<td>0</td>			</tr>
+			<tr><td>7</td>			<td>phosphate</td>		<td>0.000455</td>		<td>751</td>		</tr>
+			<tr><td>8</td>			<td>none_8</td>			<td>0.000000</td>		<td>0</td>			</tr>
+			<tr><td>9</td>			<td>Ilm+Sf</td>			<td>0.001321</td>		<td>2181</td>		</tr>
+			<tr><td>10</td>			<td>Ilm+Sf2</td>		<td>0.007911</td>		<td>13066</td>		</tr>
+			</table>
+			
+			<p>...so not great, but not terrible?  My guess is that the proportion of quartz is being underestimated by the K-means clusters
+			because the clustering algorithm can't separate fine-grained quartz that is intergrown with other stuff (e.g kyanite) from the
+			big quartz grains.</p>
+			
+			
+			
 			<!--=============================================================================
 			Trace element method
 			==============================================================================-->
