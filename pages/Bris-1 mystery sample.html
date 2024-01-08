@@ -40,7 +40,7 @@
 			
 			<p>Bris-1 is a random thin section that I found in the Petrology Lab when I started working as a lab manager.  At the time of 
 			writing, I have no idea where it comes from.  So far, it's turned out to be a garnet-bearing metamorphic rock with a lot of quartz, 
-			alkali feldspars, mica, cordierite, and kyanite.</p>
+			alkali feldspars, mica, cordierite (?), and kyanite.</p>
 			
 			<p><b>Note:</b> I use YYMMDD dates in my notes, and some of these dates may be floating around in here.</p>
 			
@@ -81,7 +81,7 @@
 				</figcaption>
 			</figure>
 			
-			<p><b>Commentary:</b> If I were a good microprobe user, I would have photographed and scanned the sample before starting any analyses,
+			<p>If I were a good microprobe user, I would have photographed and scanned the sample before starting any analyses,
 			but sometimes one is in a hurry and doesn't do that.  The PCA analyses, EDS analyses, and Ti-In-Qtz analyses were done before I went
 			back to the Petrology lab to make the photo/scans.</p> 
 			
@@ -92,14 +92,14 @@
 				</figcaption>
 			</figure>
 			
-			<p><b>Commentary: </b>A big-picture problem I am interested in figuring out is how to obtain modal mineral abundances using X-ray maps.
+			<p>A problem I am interested in working on is how to obtain modal mineral abundances using X-ray maps.
 			This problem has been solved previously with various image segmentation programs including <a href = "https://xmaptools.ch/">Pierre
 			Lanari's XMapTools</a>, but that doesn't prevent me from being curious about strategies for image segmentation or other ways to make
 			sense of multi-channel X-ray data.</p>
 			
 			<p>To get some preliminary X-ray data for the sample, I made a full thin section map using the following settings with the result
-			shown below.  I think it was also my intent to use the thin section to test my monazite dating method, but I must have forgotten about
-			this initially.</p>
+			shown below.  I think it was also my intent to use the thin section to test my monazite dating method, given the elements that I
+			had selected, but I must have forgotten about this initially as I got "sucked in" to the segmentation problem.</p>
 			
 			<ul>
 				<li>20 kV, 100 nA beam, defocused to a 20 micron circular spot</li>
@@ -113,14 +113,12 @@
 			<figure>
 				<a href = "../images/Bris-1/Bris1 PCA + key - flipped.pdf"><img src="../images/Bris-1/Bris1 PCA + key - flipped thumb.jpg"></a>
 				<figcaption>
-					230720 Principle component analysis of Bris-1 full thin section scan collected on 230717.  Note that the sample is rotated
-					180 degrees relative to the thin section photo/scans above.  I have been going back and forth between policies on the
-					microprobe that "the label should be at the top" vs "the text on the label should be right side up."  At the time of
-					wiriting, the latter is my working policy.
+					230720 Principle component analysis of Bris-1 full thin section scan collected on 230717.  I revisited this subsequently after
+					checking some of the phases with the EDS system.
 				</figcaption>
 			</figure>
 			
-			<p><b>Aside:</b> At some point, I'll probably need to explain what PCA is and how it's being used here.  Here are my notes about PCA:</p>
+			<p>At some point, I'll probably need to explain what PCA is and how it's being used here.  Here are my notes about PCA:</p>
 			
 			<h5>Lowell's explanation of PCA</h5>
 			
@@ -152,7 +150,7 @@
 				<li>Loading (positive/negative): refers to the degree to which a variable contributes to or is correlated with a PC</li>
 			</ul>
 			
-			<p><b>Commentary:</b> PCA was done for the Bris-1 sample in R with the image made from PC's 1, 2, and 3 mapped onto the R, G, and B
+			<p>PCA was done for the Bris-1 sample in R with the image made from PC's 1, 2, and 3 mapped onto the R, G, and B
 			channels respectively.  The process of making the PCA image is extremely easy, but interpreting the colors/clusters as individual
 			minerals and segmenting the image into the clusters is difficult.</p>
 			
@@ -333,9 +331,12 @@
 				</figcaption>
 			</figure>
 			
-			<p>Some of the textures were so complicated/fine scale that I "threw up my hands" and decided to just collect some quant maps...</p>
-			
-			
+			<p>Some of the textures were so complicated/fine scale that I "threw up my hands" and decided to just collect some quant maps.
+			I wrote a little R script to retrieve selected pixels from the stack of CSV files produced by the microprobe software using a .png
+			image created for each phase, which I "painted" white in ImageJ to manually identify the pixels of interest. An added benefit of
+			this approach is that the short dwell time eliminates beam damage affecting some of the micas and maybe also the alkali feldspars.
+			This method worked surprisingly well.  There were some issues with contamination between pixels and there was a little stage offset
+			between mapping passes (6 total, with two "rows" of elements with two background points for each).</p>
 			
 			<figure>
 				<a href = "../images/Bris-1/Bris-1 map comp summary.pdf"><img src="../images/Bris-1/Bris-1 map comp summary thumb.jpg"></a>
@@ -360,7 +361,7 @@
 				</figcaption>
 			</figure>
 			
-			<p><b>Commentary:</b> most users are unsure about the best conditions to use for mapping trace elements.  Usually the trace element in
+			<p>Most users are unsure about the best conditions to use for mapping trace elements.  Usually the trace element in
 			question is Yttrium, and the material in question is garnet.  Ideally, I should be able to provide a general way for the user to figure
 			this out independently without wasting a bunch of time trying things randomly, and collecting a few "qualitative" WDS spectra to test
 			out different spectrometer/element pairings, dwell times, and beam conditions seems like the best way to do this.  I've written about
@@ -431,7 +432,7 @@
 			<figure>
 				<a href = "../images/Bris-1/Bris-1 P-T summary.pdf"><img src="../images/Bris-1/Bris-1 P-T summary thumb.jpg"></a>
 				<figcaption>
-					PT calculations summary.
+					P-T calculations summary using Jan 2024 major element analyses and Dec 2023 Ti-in-Qtz data.
 				</figcaption>
 			</figure>
 			
@@ -506,9 +507,7 @@
 			<h5>TODO</h5>
 			
 			<ul>
-				<li>Do some quantitative analyses and calculate P-T using the GASP thermobarometer or two feldspars or something.</li>
 				<li>Add accuracy and precision estimates for 20 kV quant method.</li>
-				<li>Ti-in-Qtz PT calculations.</li>
 				<li>Add monazite images showing zonation and analysis locations. (photo of notes)</li>
 				<li>How do EDS maps compare to my full thin section map?  Need to include some EDS maps and spectra for comparison.</li>
 				<li>How do the Ti concentrations compare to the CL brightness?</li>
@@ -517,13 +516,19 @@
 				<li>Would segmentation work better if I try remapping it with more major elements on the WDS? (WDS:Si,Al,Ca,Fe,Mg + COMPO)</li>
 				<li>How quickly can I make a nice quality full thin section map?</li>
 				<li>Add residual plots to R script that makes major element calibration curves</li>
-				<li>Is my aluminosilicate actually Kyanite (or is it sillimanite? or Andalusite?)
+				<li>Is my aluminosilicate actually Kyanite (or is it sillimanite? or Andalusite?)</li>
+				<li>Add statistical criteria for trace element maps from my notes in Google Docs</li>
+				<li></li>
 				<li></li>
 			</ul>
 			
 			<h5>Bugs</h5>
 			
 			<ul>
+				<li>Top row should be repeated on my print composition tables</li>
+				<li>Add some space between phase id images on my quant map figure</li>
+				<li>Need to upload R script for extracting quant map pixels to GitHub</li>
+				<li></li>
 				<li></li>
 				<li></li>
 			</ul>
