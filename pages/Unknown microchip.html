@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unknown Microchip</title>
+        <link rel="stylesheet" type = "text/css" href="../css/style.css">
+		<link rel="icon" type="image/x-icon" href="../images/LM favicon.jpg">
+    </head>
+        <!-- Comment
+		<li><a href = "link">text</a></li>
+				<h3></h3>
+			<p>n = 0</p>
+			<ol>
+				<li><a href = "link">text</a></li>
+			</ol>
+			<a href ="../images/98_camry_img/cars+blur.jpg"><img src="../images/98_camry_img/cars+blur_thumb.jpg" alt=""></a>
+			
+			<table>
+			
+			<tr><th>Ingredient</th>		<th>French bread</th>	</tr>
+			<tr><td>Flour</td>			<td>*4 c</td>			</tr>
+
+			</table>
+			
+			<figure>
+				<a href = "../images/Bris-1/template.pdf"><img src="../images/Bris-1/template thumb.jpg"></a>
+				<figcaption>
+					Template caption.
+				</figcaption>
+			</figure>
+			
+			<!-- <a id = "Maintenance"></a><a href = "#contents">back to top</a> -->
+
+	<body>
+        
+		<div class="container">
+			<a id = "contents"></a>
+					
+			<h1>Unknown microchip</h1>
+			
+			<h5>Contents</h5>
+			
+			<!-- <a id = "Maintenance"></a><a href = "#contents">back to top</a> -->
+			
+			<ul>
+				<li><a href = "#Introduction">Introduction</a></li>
+				<li><a href = "#EDS exploratory data">EDS exploratory data</a></li>
+				<li><a href = "#EDS exploratory data">5-hour WDS maps</a></li>
+				<li><a href = "#Maintenance">Maintenance</a></li>				
+			</ul>
+			
+			<!--=============================================================================
+			Introduction
+			==============================================================================-->
+			
+			<a id = "Introduction"></a>
+			<h3>Introduction</h3>
+			<a href = "#contents">back to top</a>
+			
+			<p>A little over a year ago (I'm writing this on 2/15/2024, so this must be 2023 or 2022), I started learning about how to "decap"
+			the chips from integrated circuits using a method that I found on YouTube.  The method is to use a hot air gun to heat up the IC
+			and then, as the YouTuber put it, it will "break like a bar of chocolate."  If you hold the IC just right with a couple pairs of
+			pliers, the crack will go over the center of the chip, and it will fall right out of the plastic casing.  At this point, you just
+			yank the little wires from the pins and you're left with a little silicon wafer full of thin shiny traces.</p>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/Microchip photo.jpeg"><img src="../images/Unknown microchip/Microchip photo thumb.jpg"></a>
+				<figcaption>
+					240215 -- Photo of unknown microchip sample taken with my phone.  The sample has been carbon coated.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/Microchip low usb scope.jpeg"><img src="../images/Unknown microchip/Microchip low usb scope thumb.jpg"></a>
+				<figcaption>
+					240215 -- Photo of unknown microchip sample taken with a low-powered, cheap USB microscope.  It's hard to see the traces
+					using this camera without creating too much glare from the light source on the camera.  The exploratory microprobe analyses
+					I did today are from the lower right part of the chip as viewed in the image.
+				</figcaption>
+			</figure>
+			
+			<p>I've recently been learning about methods for analyzing thin films using EPMA, so I think this sample may provide a good test
+			case to develop these methods.</p>
+			
+			
+			<!--=============================================================================
+			EDS exploratory data
+			==============================================================================-->
+			
+			
+			<a id = "EDS exploratory data"></a>
+			<h3>EDS exploratory data</h3>
+			<a href = "#contents">back to top</a>
+			
+			<p>As I understand it, thin films are analyzed using point analyses.  It's clear from looking at the IC briefly that there are traces
+			going all over the place, and it's not immediately clear to me what they are made of or which ones might be detectable within the
+			analytical volume of an analysis and which are too deep to detect below the surface.  The first thing to try will probably be mapping
+			the sample using WDS over whatever area that time permits.  However, I need to figure out which elements to map first.</p>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/0926 SED 20 kV 100 nA 90x.bmp"><img src="../images/Unknown microchip/0926 SED 20 kV 100 nA 90x thumb.jpg"></a>
+				<a href = "../images/Unknown microchip/0943 SED 30 kV 100 nA 90x.bmp"><img src="../images/Unknown microchip/0943 SED 30 kV 100 nA 90x thumb.jpg"></a>
+				<figcaption>
+					240215 -- SED image of ROI at 20 kV and 30 kV accelerating voltage.  It appears that the dust particles are slightly more
+					transparent and some of the "buried" traces are slightly more visible at the increased voltage.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/0927 BED-C 20 kV 100 nA 90x.bmp"><img src="../images/Unknown microchip/0927 BED-C 20 kV 100 nA 90x thumb.jpg"></a>
+				<a href = "../images/Unknown microchip/0944 BED-C 30 kV 100 nA 90x.bmp"><img src="../images/Unknown microchip/0944 BED-C 30 kV 100 nA 90x thumb.jpg"></a>
+				<figcaption>
+					240215 -- BED-C image of ROI at 20 kV and 30 kV accelerating voltage.  The "buried" traces are WAY more visible at 30 kV.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/0929 PCLI 20 kV 100 nA 90x.bmp"><img src="../images/Unknown microchip/0929 PCLI 20 kV 100 nA 90x thumb.jpg"></a>
+				<a href = "../images/Unknown microchip/0945 PCLI 30 kV 100 nA 90x.bmp"><img src="../images/Unknown microchip/0945 PCLI 30 kV 100 nA 90x thumb.jpg"></a>
+				<figcaption>
+					240215 -- CL image of ROI at 20 kV and 30 kV accelerating voltage.  The "buried" traces seem to fluoresce very clearly.  This
+					image is almost the inverse of the BED-C images in that the "buried" traces show up brightly, but the areas without (?) these
+					traces don't appear to fluoresce at all.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/BED-C + PCLI (RGB).bmp"><img src="../images/Unknown microchip/BED-C + PCLI (RGB) thumb.jpg"></a>
+				<figcaption>
+					240215 -- False color image created using BSE (red) and CL (blue) images collected as noted above at 30 kV.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/0930 OM image.bmp"><img src="../images/Unknown microchip/0930 OM image thumb.jpg"></a>
+				<figcaption>
+					240215 -- Optical microscope (OM) image of the region of interest (ROI) taken in the same location (but different magnification) as
+					SEM images above.  Traces can clearly be seen below the surface in visible light, but the magnification is limited.  Note that the
+					fine demarcations on the reticle are 10 microns wide.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/240215 EDS report.pdf"><img src="../images/Unknown microchip/240215 EDS report thumb.jpg"></a>
+				<figcaption>
+					240215 -- Summary of EDS point analyses performed at a few locations in the lower right portion of the sample as viewed in the
+					photos shown above in the Introduction.  From these I determined that Si, Al, Ti, Cu, and W seem to be elements that are worth
+					mapping.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/Net count maps (R=Al G=Ti B=Si).bmp"><img src="../images/Unknown microchip/Net count maps (R=Al G=Ti B=Si) thumb.jpg"></a>
+				<figcaption>
+					240215 -- RGB composite image of Al (red), Ti (green), and Si (blue) EDS maps.  Although W and Cu were detected in point analyses,
+					they don't really show up in the EDS beam maps over the ROI collected over the few minutes that EDS images were made.  Seems
+					like the traces are basically made of Ti and Al.
+				</figcaption>
+			</figure>
+			
+			
+			<!--=============================================================================
+			5-hour WDS maps
+			==============================================================================-->
+			
+			<a id = "5-hour WDS maps"></a>
+			<h3>5-hour WDS maps</h3>
+			<a href = "#contents">back to top</a>
+			
+			<p>WDS maps were collected over approximately 5 hours with the spectrometer confguration listed below.  The map resolution was
+			constrained by a 100 ms dwell time needed to detect the Cu Ka1 peak using 30 kV and a 100 nA beam, a 1 micron pixel step size, and
+			my desire to finish the maps by 5 pm.  In retrospect, this time constraint never made any sense, and at the time of writing, I've
+			started an over-the-weekend map of the whole sample.
+				<ul>
+					<li>SP1 / PET / Si</li>
+					<li>SP2 / PET / Ti</li>
+					<li>SP3 / LiF / W? (La1)</li>
+					<li>SP4 / LiF / Cu?</li>
+					<li>SP5 / TAP / Al</li>
+				</ul>
+			</p>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/WDS map_unk-microchip_wds_Si.bmp"><img src="../images/Unknown microchip/WDS map_unk-microchip_wds_Si thumb.jpg"></a>
+				<figcaption>
+					240215 -- Si.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/WDS map_unk-microchip_wds_Al.bmp"><img src="../images/Unknown microchip/WDS map_unk-microchip_wds_Al thumb.jpg"></a>
+				<figcaption>
+					240215 -- Al.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/WDS map_unk-microchip_wds_Ti.bmp"><img src="../images/Unknown microchip/WDS map_unk-microchip_wds_Ti thumb.jpg"></a>
+				<figcaption>
+					240215 -- Ti.
+				</figcaption>
+			</figure>
+			
+			
+			<figure>
+				<a href = "../images/Unknown microchip/WDS composite map (R=Al G=Cu B=Ti).bmp"><img src="../images/Unknown microchip/WDS composite map (R=Al G=Cu B=Ti) thumb.jpg"></a>
+				<figcaption>
+					240215 -- RGB composite image of Al (red), Cu (green), and Ti (blue) WDS maps.  In general, the WDS maps look excellent, and
+					these three elements all seem to be present in the traces with varying amounts in different locations.  It looks like the Al
+					traces are closer to the surface, but that could just be because the Al X-rays are attenuated more easily by the sample matrix.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/WDS map_unk-microchip_wds_W.bmp"><img src="../images/Unknown microchip/WDS map_unk-microchip_wds_W thumb.jpg"></a>
+				<figcaption>
+					240215 -- False color WDS map of W La1.  W was the most interesting element that I mapped because it clearly was present in a
+					limited number of locations (as opposed to being present in every trace).
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/WDS map_unk-microchip_wds_Cu.bmp"><img src="../images/Unknown microchip/WDS map_unk-microchip_wds_Cu thumb.jpg"></a>
+				<figcaption>
+					240215 -- False color WDS map of Cu Ka1.  Cu is mostly interesting for pedagogical reasons: it's a great example of a map that
+					is near what I would consider to be the detection limit (WDS peak is visible at ~3x the background standard deviation, not shown).
+					The map also seems to confirm something that I noticed in my random smattering of EDS spectra -- that Cu is concentrated in a
+					couple of places where W is also present.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Unknown microchip/WDS composite (R=Cu G=Ti B=W).bmp"><img src="../images/Unknown microchip/WDS composite (R=Cu G=Ti B=W) thumb.jpg"></a>
+				<figcaption>
+					240215 -- RGB composite image of Cu (red), Ti (green), and W (blue).
+				</figcaption>
+			</figure>
+			
+			
+			<!--=============================================================================
+			Maintenance
+			==============================================================================-->
+			
+			<a id = "Maintenance"></a>
+			<h3>Maintenance</h3>
+			<a href = "#contents">back to top</a>
+			
+			<p>TODO:
+				<ul>
+					<li>Add some references to thin films publications</li>
+					<li>Double check my 240215 notes about the WDS map settings</li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</p>
+		</div>
+		
+    </body>
+</html>
