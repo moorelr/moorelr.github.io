@@ -70,10 +70,35 @@
 				<li>230717 -- Bris-1</li>
 				<li>?????? -- Brenham</li>
 				<li>230424 -- under J.A. Fe alloy</li>
+				<li>?????? -- Carbonate concretion</li>
 				<li></li>
 			</ul>
 			
 			<h3>Maps that I have actualy processed</h3>
+			
+			<p><b><u>Note:</u></b> at the time of writing, I have adopted the following workflow to process my maps:</p>
+			<ol>
+				<li>Use my R segmentation script to calculate PCA images, K-means clusters, and retrieve mean pixel brightness for
+				each element map.</li>
+				<li>Use Inkscape to create a summary document combining PCA map and K-means clusters with a color key.</li>
+				<li>Use ImageJ to retrieve the area percentage of each cluster and come up with a starting guess for the phases
+				represented by each cluster.  Then, add this information to the image summary document.</li>
+				<li>Start a thread using Google AI Studio, and ask the following questions (exact prompts given in AI summary documents for each map):
+					<ul>
+						<li>Based on the map summary, tell me everything about the rock.</li>
+						<li>Come up with 10 guesses about where the rock was collected.</li>
+						<li>Based on the pixel brightness, verify the phase identities.</li>
+						<li>Calculate the composition of each phase</li>
+						<li>Any other questions specific to the rock (e.g. a P-T-t path in the case of a metamorphic rock</li>
+						<li>Describe the textures present in the uploaded images</li>
+						<li>Choose the most likely sampling location based on all of the available information.</li>
+					</ul>
+				</li>
+				<li>Copy and format the AI chat as a .pdf document.</li>
+				<li>Upload everything to this website.</li>
+			</ol>
+			<p>So far, I have not checked any of the AI output for accuracy, but this should be straightforward to do by applying
+			this workflow to a sample for which I know the location and/or composition of the major phases.</p>
 			
 			<figure>
 				<a href = "../images/Bris-1/Bris1 PCA + key - flipped.pdf"><img src="../images/Bris-1/Bris1 PCA + key - flipped thumb.jpg"></a>
@@ -85,12 +110,32 @@
 			<figure>
 				<a href = "../images/Image segmentation gallery/CHK-515A-40 cluster images + key.pdf"><img src="../images/Image segmentation gallery/CHK-515A-40 cluster Images + key thumb.jpg"></a>
 				<figcaption>
-					251222 -- CHK-515A-40. <a href = "../images/Image segmentation gallery/CHK-515A-40 AI Summary.pdf"">AI summary</a>.
+					251222 -- CHK-515A-40. <a href = "../images/Image segmentation gallery/CHK-515A-40 AI Summary.pdf">AI summary</a>.
 				</figcaption>
 			</figure>
 			
+			<figure>
+				<a href = "../images/Image segmentation gallery/MR-BA map summary.pdf"><img src="../images/Image segmentation gallery/MR-BA map summary thumb.jpg"></a>
+				<figcaption>
+					251222 -- MR-BA. <a href = "../images/Image segmentation gallery/MR-BA pixel brightness.pdf">Pixel brightness table</a>
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Image segmentation gallery/OOB7 map summary.pdf"><img src="../images/Image segmentation gallery/OOB7 map summary thumb.jpg"></a>
+				<figcaption>
+					251222 -- OOB7. <a href = "../images/Image segmentation gallery/OOB7 Pixel intensity.pdf">Pixel brightness table</a>.
+					<a href = "../images/Image segmentation gallery/OOB7 AI summary.pdf">AI summary</a>.
+				</figcaption>
+			</figure>
+			
+			<figure>
+				<a href = "../images/Image segmentation gallery/MR-1 map summary.pdf"><img src="../images/Image segmentation gallery/MR-1 map summary thumb.jpg"></a>
+				<figcaption>
+					251010 -- MR-1. <a href = "../images/Image segmentation gallery/MR-1 pixel brightness.pdf">Pixel brightness table</a>.
+				</figcaption>
+			</figure>
 		</div>
 		
     </body>
 </html>
-
